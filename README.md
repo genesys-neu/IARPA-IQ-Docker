@@ -1,4 +1,17 @@
 # Download and Run Docker File Anomaly Detection in LTE Signals
+This is a README companion to run the docker container "iarpa-iq-yolo", which is
+a work in progress.
+THIS IS NOT A DOCKERFILE!
+Please message Jerry Gu (gu.je@northeastern.edu) for any questions, thanks!
+
+
+# Contents
+* [Pre-requisite](#pre-requisite)
+* [Download Image](#download-image)
+* [Loading the Image to Local Docker Repository](#loading-the-image-to-local-docker-repository)
+
+
+
 
 ## Pre-requisite
 Install docker
@@ -7,12 +20,6 @@ Install docker
 
 To access the "iarpa-iq-yolo" docker container, please visit [here](https://northeastern-my.sharepoint.com/personal/gu_je_northeastern_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fgu%5Fje%5Fnortheastern%5Fedu%2FDocuments%2FIARPA%2DIQ%2DYOLO)
 and request access from gu.je@northeastern.edu.
-
-## Disclaimer
-This is a README companion to run the docker container "iarpa-iq-yolo", which is
-a work in progress.
-THIS IS NOT A DOCKERFILE!
-Please message Jerry Gu (gu.je@northeastern.edu) for any questions, thanks!
 
 ## Loading the Image to Local Docker Repository
 
