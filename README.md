@@ -1,16 +1,26 @@
-# IARPA-IQ-YOLO-Docker
+# Download and Run Docker File Anomaly Detection in LTE Signals
+
+## Pre-requisite
+Install docker
+
+## Download Image
 
 To access the "iarpa-iq-yolo" docker container, please visit [here](https://northeastern-my.sharepoint.com/personal/gu_je_northeastern_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fgu%5Fje%5Fnortheastern%5Fedu%2FDocuments%2FIARPA%2DIQ%2DYOLO)
 and request access from gu.je@northeastern.edu.
 
+## Disclaimer
 This is a README companion to run the docker container "iarpa-iq-yolo", which is
 a work in progress.
 THIS IS NOT A DOCKERFILE!
 Please message Jerry Gu (gu.je@northeastern.edu) for any questions, thanks!
 
+## Loading the Image to Local Docker Repository
+
 This Docker container was built to run the "IARPA-IQ-API" and "Yolo-inference"
 repositories without the need to manually install correct package versions,
-though most versions of the used packages should work. The packages and
+though most versions of the used packages should work. 
+
+The packages and
 versions in this container are:
 ~~~
 Python 3.8.10
@@ -22,6 +32,9 @@ tqdm 4.62.3
 glob2 0.7
 Setuptools 60.9.3
 ~~~
+
+## Accessing the Source Code
+
 To start using this Docker container, please install the following:
 ~~~
 Docker engine/app: https://docs.docker.com/engine/install/
