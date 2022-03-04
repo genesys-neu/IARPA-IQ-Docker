@@ -27,19 +27,6 @@ This Docker container was built to run the "IARPA-IQ-API" and "Yolo-inference"
 repositories without the need to manually install correct package versions,
 though most versions of the used packages should work. 
 
-The packages and
-versions in this container are:
-~~~
-Python 3.8.10
-pip3 20.0.3
-TensorFlow/Keras 2.8
-Opencv-python (cv2) 4.4.5
-Pillow (PIL) 9.0.1
-tqdm 4.62.3
-glob2 0.7
-Setuptools 60.9.3
-~~~
-
 ## Accessing the Source Code
 
 To start using this Docker container, please install the following:
@@ -102,3 +89,19 @@ to store it as a tar.gz file for sharing. As an example:
 ~~~
 $sudo docker export beautiful_banzai > iarpa-iq-yolo.tar.gz
 ~~~
+The packages and
+versions in this container are:
+~~~
+Python 3.8.10
+pip3 20.0.3
+TensorFlow/Keras 2.8
+Opencv-python (cv2) 4.4.5
+Pillow (PIL) 9.0.1
+tqdm 4.62.3
+glob2 0.7
+Setuptools 60.9.3
+~~~
+  
+  
+  
+  
