@@ -1,6 +1,5 @@
 # README
-This Docker container (4.2 GB) was built to run the "IARPA-IQ-API" and "Yolo-inference"
-repositories for anomaly detection in LTE signals without the need to manually install specific package versions.
+This Docker container (4.2 GB) was built to run the "IARPA-IQ-API" repository for anomaly detection in LTE signals without the need to manually install specific package versions.
  
 Please send all questions to either gu.je or soltani.n {@northeastern.edu}, thanks!
 
