@@ -36,7 +36,7 @@ iarpa-iq-yolo   latest    d71ed07d1bc6   36 hours ago   4.2GB
 ### Copying data into the image
 To copy a local dataset, folder, or file to the image, run:
 ~~~
-sudo docker cp ~/<local path to file/folder> <image ID>:<image path>
+sudo docker cp ~/<local path to file/folder> <container ID>:<image path>
 ~~~
 where <image path> may be ```/home``` for simplicity. An example usage would be ```sudo docker cp ~/Downloads/IARPA-IQ-API-main d71ed07d1bc6:/home```.
 ### Running the image
