@@ -35,7 +35,7 @@ iarpa-iq-api   latest    d71ed07d1bc6   36 hours ago   4.2GB
 ### Running the IQ API  
 This image comes with folders and folder paths hard-coded for convenience. To run the image with the desired dataset:
 ~~~
-sudo docker run -it -v <dataset_absolute_local_path>:/home/IARPA-IQ-API-main/data iarpa-iq-api /home/IARPA-IQ-API-main/./run_ML_code.sh
+sudo docker run -v <dataset_absolute_local_path>:/home/IARPA-IQ-API-main/data iarpa-iq-api /home/IARPA-IQ-API-main/./run_ML_code.sh
 ~~~
 where ```/home/IARPA-IQ-API-main/data``` is the ```<dataset_absolute_image_path>``` This runs the image in an interactive mode when the code is done, meaning that you can use a terminal interface and add/edit files in the container instead of running it standalone.
   
