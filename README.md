@@ -9,13 +9,11 @@ Please send all questions to either gu.je or soltani.n {@northeastern.edu}, than
   * [Running the IQ API](#running-the-iq-api)
 * [Instructions for Developers](#instructions-for-developers)
 * [Appendix](#appendix)
-  * [Troubleshooting](#troubleshooting) 
-
-
+  * [Troubleshooting](#troubleshooting)
 
 ## Pre-requisites
 Install Docker engine/app for your specific operating system [here.](https://docs.docker.com/engine/install/)  
-Install the IARPA-IQ-YOLO Docker container [here.](https://drive.google.com/file/d/1517yLfR2ySeCc_1IBHuPQtxh__xM79oh/view?usp=sharing)
+Install the IARPA-IQ-YOLO Docker container [here.](https://drive.google.com/file/d/1R-B9JrwCeQGjZolr0bT1fdhOp4uE2D05/view?usp=sharing)
 
 ## Instructions for Users
 
@@ -33,56 +31,59 @@ REPOSITORY      TAG       IMAGE ID       CREATED        SIZE
 iarpa-iq-api   latest    d71ed07d1bc6   36 hours ago   4.2GB
 ~~~
 ### Running the IQ API  
-This image comes with folders and folder paths hard-coded for convenience. To run the image with the desired dataset:
+This image comes with folders and folder paths hard-coded for convenience. To run the image with the desired dataset, run
 ~~~
 sudo docker run -v \
 <dataset_absolute_local_path>: \
 /home/IARPA-IQ-API-main/data iarpa-iq-api \
 /home/IARPA-IQ-API-main/./run_ML_code.sh
 ~~~
-where ```/home/IARPA-IQ-API-main/data``` is the ```<dataset_absolute_image_path>``` This runs the image in an interactive mode when the code is done, meaning that you can use a terminal interface and add/edit files in the container instead of running it standalone.
-  
-You may ```exit``` at any time to exit the image. Note that instances and changes are not automatically saved and will be deleted once exiting the image.
-
-If the run stops immediately, check the log.err file (go to its directory in ```/home/IARPA-IQ-API-main/results/``` and use ```tail log.err```) for any errors and address them if able.
-  
-You can check progress with log.err and log.out. The predictions will be saved in <save_path> in preds.pkl, and the accuracy will be reported in ```log.out``` as (slice, example) accuracy.
+where ```/home/IARPA-IQ-API-main/data``` is the ```<dataset_absolute_image_path>```. An example of this command is  
+```sudo docker run -v /home/jgu1/data:/home/IARPA-IQ-API-main/data iarpa-iq-api /home/IARPA-IQ-API-main/./run_ML_code.sh```. The ```-v``` flag mounts the dataset to the image without needing to copy the dataset into the image. This runs the IQ-API while printing out predictions, given as (file:prediction), to the terminal without entering the image itself.
 
 [Back to Contents](#contents)
 ## Instructions for Developers
-To run the image without mounting a dataset (i.e., for file exploration), run:
+To run the image without mounting a dataset (i.e., for file exploration), run
 ~~~
 sudo docker run -it iarpa-iq-api bash
 ~~~
-The ```bash``` signifies that you want the image to open with a bash interface.
+The ```bash``` signifies that you want the image to open with a bash interface. You may ```exit``` at any time to exit the image. Note that instances and changes are not automatically saved and will be deleted once exiting the image. You may run the API while in the image by navigating to ```/home/IARPA-IQ-API-main``` and running ```./run_ML_code.sh```.
 
 To copy a local dataset, folder, or file to the image, run
 ~~~
 sudo docker cp ~/<local path to file/folder> <container ID>:<image path>
 ~~~
-where <image path> may be ```/home``` for simplicity. An example usage would be ```sudo docker cp ~/Downloads/IARPA-IQ-API-main d71ed07d1bc6:/home```.
+where ```<image path>``` may be ```/home``` for simplicity.  
+An example usage would be ```sudo docker cp ~/Downloads/IARPA-IQ-API-main d71ed07d1bc6:/home```.
 
-To save a version of the image, exit the image, and do the following process. Open up a new terminal interface and run
+To save a version of the image, obtain the container ID, e.g., ```1c7c465972ad``` from ```root@1c7c465972ad:/#``` while running an image. You may also open up a new terminal interface and run
 ~~~
 sudo docker ps -a
 ~~~
-to obtain the container ID of all images (we want the most recent entry at the top), and then run
+to obtain the container ID of all images (timestamped by creation time and status), and then run
 ~~~
 sudo docker commit <container ID> <new image name>
 ~~~
-to save the current version. You may add a tag to <new image name> via
+to save the current version. You may add a descriptive tag to <new image name> via
 semicolon, e.g., iarpa-iq-yolo:v2, and so on.
 
-Finally, to export the container, run #sudo docker ps again to obtain the
-randomly generated "name" of the container instance e.g., "beautiful_banzai",
-and run:
+To remove all stopped containers or images, run
 ~~~
-$sudo docker export <name> > <file.tar.gz>
+sudo docker container prune
 ~~~
-to store it as a tar.gz file for sharing. As an example:
+or
 ~~~
-$sudo docker export beautiful_banzai > iarpa-iq-yolo.tar.gz
+sudo docker image prune
 ~~~
+respectively. You may add a time limit for removal, e.g., ```docker image prune --filter "until=24h"``` to remove all containers/images older than 24 hours.
+ 
+Finally, to export the container to a .tar or .tar.gz file for transfering the image, obtain the generated name of the container instance from  
+```sudo docker ps -a```, e.g., ```beautiful_banzai```, and run:
+~~~
+sudo docker export <name> > <file.tar OR file.tar.gz>
+~~~
+to store it as a tar.gz file for sharing. As an example, ```sudo docker export beautiful_banzai > iarpa-iq-yolo.tar.gz```.  
+[Back to Contents](#contents)
 ## Appendix
 The packages and their respective versions in this container are:
 ~~~
@@ -101,5 +102,5 @@ If the image does not load, you can try
 ~~~
 sudo cat iarpa-iq-api-tar.gz | sudo docker import - iarpa-iq-api/iarpa-iq-api
 ~~~
-  
+[Back to Contents](#contents)
   
