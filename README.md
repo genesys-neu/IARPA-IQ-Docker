@@ -100,7 +100,7 @@ Setuptools 60.9.3
 ### Troubleshooting
 If the image does not load, you can try
 ~~~
-sudo cat iarpa-iq-api-tar.gz | sudo docker import - iarpa-iq-api
+sudo cat iarpa-iq-api.tar.gz | sudo docker import - iarpa-iq-api
 ~~~
 [Back to Contents](#contents)
   
