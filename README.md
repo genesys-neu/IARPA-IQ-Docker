@@ -13,13 +13,13 @@ Please send all questions to either gu.je or soltani.n {@northeastern.edu}, than
 
 ## Pre-requisites
 Install Docker engine/app for your specific operating system [here.](https://docs.docker.com/engine/install/)  
-Install the IARPA-IQ-YOLO Docker container [here.](https://drive.google.com/file/d/1Px90nmOGMz8sJLUOLbyhvFV3EIW2zZrt/view?usp=sharing)
+Install the IARPA-IQ-YOLO Docker container [here.](https://drive.google.com/file/d/1oEaHiV8m9kwwBo_Osz8eF8QzZzCcjHus/view?usp=sharing)
 
 ## Instructions for Users
 
 To load the Docker container, go to the directory where the container is and use the following command:
 ~~~
-sudo docker load -i iarpa-iq-api.tar.gz
+sudo docker load -i iarpa-iq-api.tar
 ~~~
 To verify that the container was loaded successfully, do:
 ~~~
@@ -80,9 +80,9 @@ respectively. You may add a time limit for removal, e.g., ```docker image prune 
 Finally, to export the container to a .tar or .tar.gz file for transfering the image, obtain the generated name of the container instance from  
 ```sudo docker ps -a```, e.g., ```beautiful_banzai```, and run:
 ~~~
-sudo docker export <name> > <file.tar OR file.tar.gz>
+sudo docker export <name> > <file.tar>
 ~~~
-to store it as a tar.gz file for sharing. As an example, ```sudo docker export beautiful_banzai > iarpa-iq-yolo.tar.gz```.  
+to store it as a .tar file for sharing. As an example, ```sudo docker export beautiful_banzai > iarpa-iq-yolo.tar```.  
 [Back to Contents](#contents)
 ## Appendix
 The packages and their respective versions in this container are:
@@ -98,9 +98,10 @@ Setuptools 60.9.3
 ~~~
 
 ### Troubleshooting
-If the image does not load, you can try
+If the container comes in a .tar.gz format, you can try
 ~~~
 sudo cat iarpa-iq-api.tar.gz | sudo docker import - iarpa-iq-api
 ~~~
+to load the container. If you are using a NVIDIA GPU, you can access the installation guide for their container toolkit [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) in order for the Docker to detect your NVIDIA GPU.
+ 
 [Back to Contents](#contents)
-  
