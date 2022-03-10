@@ -38,7 +38,7 @@ sudo docker run -v \
 /home/IARPA-IQ-API-main/data iarpa-iq-api \
 /home/IARPA-IQ-API-main/./run_ML_code.sh
 ~~~
-where ```/home/IARPA-IQ-API-main/data``` is the ```<dataset_absolute_image_path>```. The input data files may be any binary files containing alternating I and Q samples in a single column, i.e., vector of shape (# of total samples x 1), with at least **256** samples. An example of this command is  
+where ```/home/IARPA-IQ-API-main/data``` is the ```<dataset_absolute_image_path>```. The input data files may be any binary files containing alternating I and Q samples in a single column, i.e., vector of shape (# of total samples x 1), with at least **256** samples per file. An example of this command is  
 ```sudo docker run -v /home/jgu1/data:/home/IARPA-IQ-API-main/data iarpa-iq-api /home/IARPA-IQ-API-main/./run_ML_code.sh```. The ```-v``` flag mounts the dataset to the image without needing to copy the dataset into the image. This runs the IQ-API while printing out predictions, given as (file:prediction), to the terminal without entering the image itself.
 
 [Back to Contents](#contents)
