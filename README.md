@@ -67,15 +67,11 @@ sudo docker commit <container ID> <new image name>
 to save the current version. You may add a descriptive tag to <new image name> via
 semicolon, e.g., iarpa-iq-yolo:v2, and so on.
 
-To remove all stopped containers or images, run
+To remove the current version of the image, run
 ~~~
-sudo docker container prune
+sudo docker rmi iarpa-iq-api
 ~~~
-or
-~~~
-sudo docker image prune
-~~~
-respectively. You may add a time limit for removal, e.g., ```docker image prune --filter "until=24h"``` to remove all containers/images older than 24 hours.
+You may add a time limit for removal, e.g., ```docker image prune --filter "until=24h"``` to remove all containers/images older than 24 hours.
  
 Finally, to export the container to a .tar or .tar.gz file for transfering the image, obtain the generated name of the container instance from  
 ```sudo docker ps -a```, e.g., ```beautiful_banzai```, and run:
