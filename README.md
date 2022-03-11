@@ -19,7 +19,7 @@ Install the IARPA-IQ-YOLO Docker container [here.](https://drive.google.com/file
 
 To load the Docker container, go to the directory where the container is and use the following command:
 ~~~
-sudo docker load -i iarpa-iq-api.tar
+sudo cat iarpa-iq-api.tar | sudo docker import - iarpa-iq-api
 ~~~
 To verify that the container was loaded successfully, do:
 ~~~
@@ -98,6 +98,7 @@ Setuptools 60.9.3
 ~~~
 
 ### Troubleshooting
+
 If the container comes in a .tar.gz format, you can try
 ~~~
 sudo cat iarpa-iq-api.tar.gz | sudo docker import - iarpa-iq-api
