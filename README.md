@@ -13,7 +13,7 @@ Please send all questions to either gu.je or soltani.n {@northeastern.edu}, than
 
 ## Pre-requisites
 Install Docker engine/app for your specific operating system [here.](https://docs.docker.com/engine/install/)  
-Install the IARPA-IQ-YOLO Docker container [here.](https://drive.google.com/file/d/1oEaHiV8m9kwwBo_Osz8eF8QzZzCcjHus/view?usp=sharing)
+Install the IARPA-IQ-YOLO Docker container [here.](https://drive.google.com/file/d/1HXT34Tg025ZoKA0St3rQRvk-ZjzlbvpQ/view?usp=sharing)
 
 ## Instructions for Users
 
@@ -38,8 +38,10 @@ sudo docker run -v \
 /home/IARPA-IQ-API-main/data iarpa-iq-api \
 /home/IARPA-IQ-API-main/./run_ML_code.sh
 ~~~
-where ```/home/IARPA-IQ-API-main/data``` is the ```<dataset_absolute_image_path>```. The input data files may be any binary files containing alternating I and Q samples in a single column, i.e., vector of shape (# of total samples x 1), with at least **256** samples per file. An example of this command is  
+where ```/home/IARPA-IQ-API-main/data``` is the ```<dataset_absolute_image_path>```. The input data files may be any binary files containing alternating I and Q samples in a single column, i.e., vector of shape (# of total samples x 1), with at least **256** data samples per file. An example of this command is  
 ```sudo docker run -v /home/jgu1/data:/home/IARPA-IQ-API-main/data iarpa-iq-api /home/IARPA-IQ-API-main/./run_ML_code.sh```. The ```-v``` flag mounts the dataset to the image without needing to copy the dataset into the image. This runs the IQ-API while printing out predictions, given as (file:prediction), to the terminal without entering the image itself.
+
+Note: Currently, this docker is being designed for use with binary ```.tim``` files, which specify the size of the data array within each file in the first two elements of the array. Though this container should generate predictions if there are at least 256 samples in each input file, the **first two samples in each data file will not be used towards generating predictions.**
 
 [Back to Contents](#contents)
 ## Instructions for Developers
@@ -56,7 +58,7 @@ sudo docker cp ~/<local path to file/folder> <container ID>:<image path>
 where ```<image path>``` may be ```/home``` for simplicity.  
 An example usage would be ```sudo docker cp ~/Downloads/IARPA-IQ-API-main d71ed07d1bc6:/home```.
 
-You may remove and edit files within the container. However, please note that if a dataset is mounted to the container while it is running, **deleting the folder containing the dataset within the docker will delete the dataset on the local device.**
+You may remove and edit files within the image. However, please note that if a dataset is mounted to the image while it is running, **deleting the folder containing the dataset within the image will delete the dataset on the local device.**
 
 To save a version of the image, obtain the container ID, e.g., ```1c7c465972ad``` from ```root@1c7c465972ad:/#``` while running an image. You may also open up a new terminal interface and run
 ~~~
