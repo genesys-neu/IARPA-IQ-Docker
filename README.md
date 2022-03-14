@@ -56,6 +56,8 @@ sudo docker cp ~/<local path to file/folder> <container ID>:<image path>
 where ```<image path>``` may be ```/home``` for simplicity.  
 An example usage would be ```sudo docker cp ~/Downloads/IARPA-IQ-API-main d71ed07d1bc6:/home```.
 
+You may remove and edit files within the container. However, please note that if a dataset is mounted to the container while it is running, **deleting the folder containing the dataset within the docker will delete the dataset on the local device.**
+
 To save a version of the image, obtain the container ID, e.g., ```1c7c465972ad``` from ```root@1c7c465972ad:/#``` while running an image. You may also open up a new terminal interface and run
 ~~~
 sudo docker ps -a
